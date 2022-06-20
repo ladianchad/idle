@@ -59,15 +59,3 @@ export default function RootNavigation() {
 }
 
 const RootNavigationStack = createNativeStackNavigator<RootStackParam>();
-
-const BottomTab = createBottomTabNavigator<BottomStackParam>();
-
-const NullScreen = () => null;
-
-function BottomTabNavigator() {
-  return(
-    <BottomTab.Navigator>
-
-    </BottomTab.Navigator>
-  )
-}

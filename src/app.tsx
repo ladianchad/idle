@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { QueryClient, QueryClientProvider } from "react-query";
 import registerRootComponent from 'expo/build/launch/registerRootComponent';
 import RootNavigation from './index';
+import Footer from './layout/footer';
 
 const queryClient = new QueryClient();
 
