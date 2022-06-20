@@ -1,7 +1,11 @@
 import { NavigatorScreenParams } from "@react-navigation/native"
 
 export type RootStackParam = {
-  root: NavigatorScreenParams<RootTabParmList> | undefined
+  home: NavigatorScreenParams<RootParmList> | undefined,
+  category: NavigatorScreenParams<RootParmList> | undefined,
+  mybag: NavigatorScreenParams<RootParmList> | undefined,
+  mypage: NavigatorScreenParams<RootParmList> | undefined,
+  search: NavigatorScreenParams<RootParmList> | undefined
 }
 
-export type RootTabParmList = {}
+export type RootParmList = {}
