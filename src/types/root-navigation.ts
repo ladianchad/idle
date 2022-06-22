@@ -1,4 +1,7 @@
 import { NavigatorScreenParams } from "@react-navigation/native"
+import { NativeStackNavigationProp } from "@react-navigation/native-stack"
+
+export type RootNavigationProp = NativeStackNavigationProp<RootStackParam>;
 
 export type RootStackParam = {
   home: NavigatorScreenParams<RootParmList> | undefined,

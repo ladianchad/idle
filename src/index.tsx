@@ -4,13 +4,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { RootStackParam } from './types/root-navigation';
 import Home from './pages/home/home';
 import HomeHeader from './pages/home/home-header';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import homeStyle from './pages/home/home.style';
 import Category from './pages/category/category';
 import MyBag from './pages/mybag/mybag';
 import MyPage from './pages/mypage/mypage';
 import Search from './pages/search/search';
-import { BottomParmList, BottomStackParam } from './types/bottom-navigation';
 
 export default function RootNavigation() {
   return(
@@ -26,6 +24,8 @@ export default function RootNavigation() {
           name='home' 
           component={Home}
           options={() => ({
+            title: '홈',
+            headerTitleAlign: 'center',
             headerTitle: HomeHeader,
             headerStyle: homeStyle.headerTitle
           })}/>
@@ -34,24 +34,28 @@ export default function RootNavigation() {
           name='category' 
           component={Category}
           options={() => ({
+            title: '카테고리'
           })}/>
         
         <RootNavigationStack.Screen 
           name='mybag'
           component={MyBag}
           options={() => ({
+            title: '장바구니'
           })}/>
         
         <RootNavigationStack.Screen 
           name='mypage'
           component={MyPage}
           options={() => ({
+            title: '마이 페이지'
           })}/>
         
         <RootNavigationStack.Screen 
           name='search'
           component={Search}
           options={() => ({
+              title: '검색'
           })}/>
       </RootNavigationStack.Navigator>
     </NavigationContainer>

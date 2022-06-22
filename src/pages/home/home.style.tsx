@@ -5,7 +5,7 @@ const homeStyle = StyleSheet.create({
   header: {
   },
   headerTitle: {
-    backgroundColor: '#EB3300'
+    backgroundColor: '#EB3300',
   },
   headerTitleImage: {
     width: 220,
