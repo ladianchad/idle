@@ -1,9 +1,11 @@
+import { useNetInfo } from "@react-native-community/netinfo";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { ScrollView, Text } from "react-native";
-import { Image, Pressable, View } from "react-native";
+import { Image, Pressable, View, Text, ScrollView } from "react-native";
+
 import { SafeAreaView } from "react-navigation";
-import { RootNavigationProp, RootStackParam } from "../types/root-navigation";
+import NetworkIssue from "../components/errors/network-issue";
+import { RootNavigationProp } from "../types/root-navigation";
 import defaultLayoutStyle from "./default-layout.style"
 
 export default function DefaultLayout({
@@ -11,6 +13,7 @@ export default function DefaultLayout({
 }: {
   children: React.ReactNode,
 }) {
+  const netInfo = useNetInfo();
 
   return(
     <SafeAreaView style={defaultLayoutStyle.root}
@@ -20,7 +23,10 @@ export default function DefaultLayout({
       }}
     >
       <ScrollView style={defaultLayoutStyle.main}> 
-        {children}
+        {
+          netInfo.isConnected ? 
+            children : (<NetworkIssue/>)
+        }
       </ScrollView>
       <DefaultLayoutBottomTabBar/>
     </SafeAreaView>
