@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 
+export const defaultlayoutTabHeight = 70;
+
 const defaultLayoutStyle = StyleSheet.create({
   root: {
     width: '100%',
@@ -10,14 +12,14 @@ const defaultLayoutStyle = StyleSheet.create({
 
   main: {
     width: '100%',
-    height: '90%',
+    height: '100%',
     overflow: 'scroll',
     backgroundColor: '#ffffff'
   },
 
   bottomTabBar: {
     width: '100%',
-    height: '10%',
+    height: defaultlayoutTabHeight,
     flexDirection: 'row',
     display: 'flex',
     borderTopWidth: 1,
@@ -28,12 +30,13 @@ const defaultLayoutStyle = StyleSheet.create({
   bottomTabIconBox: {
     width: '20%',
     height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
 
   bottomTabIcon: {
-    width: '50%',
-    height: '50%',
-    margin: '20%',
+    width: 34,
+    height: 34,
     resizeMode: 'contain'
   }
 });

@@ -10,6 +10,13 @@ const homeStyle = StyleSheet.create({
   headerTitleImage: {
     width: 220,
     height: 40,
+  },
+  test: {
+    height: 100,
+    width: '100%',
+    fontSize: 50,
+    backgroundColor: "#fff00f",
+    textAlign: 'center',
   }
 })
 

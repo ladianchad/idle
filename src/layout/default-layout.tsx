@@ -1,12 +1,12 @@
 import { useNetInfo } from "@react-native-community/netinfo";
 import { useNavigation } from "@react-navigation/native";
-import React from "react";
-import { Image, Pressable, View, Text, ScrollView } from "react-native";
+import React, { useEffect, useState } from "react";
+import { Image, Pressable, View, Platform, ScrollView, useWindowDimensions } from "react-native";
 
 import { SafeAreaView } from "react-navigation";
 import NetworkIssue from "../components/errors/network-issue";
 import { RootNavigationProp } from "../types/root-navigation";
-import defaultLayoutStyle from "./default-layout.style"
+import defaultLayoutStyle, { defaultlayoutTabHeight } from "./default-layout.style"
 
 export default function DefaultLayout({
   children,
@@ -14,25 +14,34 @@ export default function DefaultLayout({
   children: React.ReactNode,
 }) {
   const netInfo = useNetInfo();
+  const useDeimensions = useWindowDimensions();
+  const [mainHeight, setMainHeight] = useState<string | number>(0);
+  
+  useEffect(() => {
+    if(Platform.OS != 'web') {
+      setMainHeight(useDeimensions.height - defaultlayoutTabHeight);
+    }
+  });
 
   return(
-    <SafeAreaView style={defaultLayoutStyle.root}
+    <SafeAreaView style={defaultLayoutStyle.main}
       forceInset={{
         top: 'never',
         bottom: 'always'
       }}
     >
-      <ScrollView style={defaultLayoutStyle.main}> 
-        {
-          netInfo.isConnected ? 
-            children : (<NetworkIssue/>)
-        }
-      </ScrollView>
+      {netInfo.isConnected ? 
+        (<ScrollView style={{
+          ...(defaultLayoutStyle.main),
+          height: mainHeight
+          }}> 
+          {children}
+        </ScrollView>) : 
+        (<NetworkIssue/>)}
       <DefaultLayoutBottomTabBar/>
     </SafeAreaView>
   )
 }
-
 
 function DefaultLayoutBottomTabBar() {
 
