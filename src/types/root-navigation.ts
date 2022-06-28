@@ -8,7 +8,8 @@ export type RootStackParam = {
   category: NavigatorScreenParams<RootParmList> | undefined,
   mybag: NavigatorScreenParams<RootParmList> | undefined,
   mypage: NavigatorScreenParams<RootParmList> | undefined,
-  search: NavigatorScreenParams<RootParmList> | undefined
+  search: NavigatorScreenParams<RootParmList> | undefined,
+  notfound: NavigatorScreenParams<RootParmList> | undefined
 }
 
 export type RootParmList = {}

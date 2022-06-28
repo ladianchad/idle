@@ -1,7 +1,7 @@
 import { useNetInfo } from "@react-native-community/netinfo";
 import { useNavigation } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
-import { Image, Pressable, View, Platform, ScrollView, useWindowDimensions } from "react-native";
+import { Image, Pressable, View, Platform, ScrollView, useWindowDimensions, Text } from "react-native";
 
 import { SafeAreaView } from "react-navigation";
 import NetworkIssue from "../components/errors/network-issue";
@@ -10,8 +10,10 @@ import defaultLayoutStyle, { defaultlayoutTabHeight } from "./default-layout.sty
 
 export default function DefaultLayout({
   children,
+  header
 }: {
   children: React.ReactNode,
+  header?: React.ReactNode
 }) {
   const netInfo = useNetInfo();
   const useDeimensions = useWindowDimensions();
@@ -30,6 +32,7 @@ export default function DefaultLayout({
         bottom: 'always'
       }}
     >
+      {header}
       {netInfo.isConnected ? 
         (<ScrollView style={{
           ...(defaultLayoutStyle.main),

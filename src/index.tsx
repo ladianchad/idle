@@ -8,6 +8,7 @@ import Category from './pages/category/category';
 import MyBag from './pages/mybag/mybag';
 import MyPage from './pages/mypage/mypage';
 import Search from './pages/search/search';
+import NotFound from './pages/default/not-found';
 
 export default function RootNavigation() {
   return(
@@ -54,7 +55,14 @@ export default function RootNavigation() {
           name='search'
           component={Search}
           options={() => ({
-              title: '검색'
+            title: '검색'
+          })}/>
+          
+        <RootNavigationStack.Screen 
+          name='notfound'
+          component={NotFound}
+          options={() => ({
+            title: 'Opps!!'
           })}/>
       </RootNavigationStack.Navigator>
     </NavigationContainer>

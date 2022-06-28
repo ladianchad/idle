@@ -24,7 +24,7 @@ const defaultLayoutStyle = StyleSheet.create({
     display: 'flex',
     borderTopWidth: 1,
     borderTopColor: '#eeeeee',
-    backgroundColor: '#ffffff'
+    backgroundColor: '#ffffff',
   },
 
   bottomTabIconBox: {
