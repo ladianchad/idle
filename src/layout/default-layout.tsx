@@ -33,14 +33,16 @@ export default function DefaultLayout({
       }}
     >
       {header}
-      {netInfo.isConnected ? 
-        (<ScrollView style={{
-          ...(defaultLayoutStyle.main),
-          height: mainHeight
-          }}> 
-          {children}
-        </ScrollView>) : 
-        (<NetworkIssue/>)}
+      <ScrollView 
+          style={{
+            ...(defaultLayoutStyle.main),
+            height: mainHeight
+          }}
+          showsHorizontalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
+          > 
+          { netInfo.isConnected ? children : (<NetworkIssue/>)}
+      </ScrollView>
       <DefaultLayoutBottomTabBar/>
     </SafeAreaView>
   )

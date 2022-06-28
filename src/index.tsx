@@ -2,7 +2,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { RootStackParam } from './types/root-navigation';
-import Home, { HomeHeader } from './pages/home/home';
+import Home from './pages/home/home';
+import HomeHeader from './pages/home/home-header';
 import homeStyle from './pages/home/home.style';
 import Category from './pages/category/category';
 import MyBag from './pages/mybag/mybag';
@@ -18,6 +19,7 @@ export default function RootNavigation() {
       screenOptions={() => ({
         headerShown: true,
         title: '고기팜',
+        animation: 'none',
       })}
       >
         <RootNavigationStack.Screen 
