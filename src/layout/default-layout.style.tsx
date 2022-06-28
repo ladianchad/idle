@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export const defaultlayoutTabHeight = 70;
+export const defaultlayoutTabHeight = 60;
 
 const defaultLayoutStyle = StyleSheet.create({
   root: {
@@ -35,9 +35,14 @@ const defaultLayoutStyle = StyleSheet.create({
   },
 
   bottomTabIcon: {
-    width: 34,
-    height: 34,
+    width: 20,
+    height: 20,
+    margin: 5,
     resizeMode: 'contain'
+  },
+
+  bottomTabLabel: {
+    fontSize: 12
   }
 });
 

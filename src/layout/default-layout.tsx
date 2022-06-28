@@ -40,8 +40,9 @@ export default function DefaultLayout({
           }}
           showsHorizontalScrollIndicator={false}
           showsVerticalScrollIndicator={false}
+          contentContainerStyle={{flexGrow: 1}}
           > 
-          { netInfo.isConnected ? children : (<NetworkIssue/>)}
+        { netInfo.isConnected ? children : (<NetworkIssue/>)}
       </ScrollView>
       <DefaultLayoutBottomTabBar/>
     </SafeAreaView>
@@ -75,30 +76,35 @@ function DefaultLayoutBottomTabBar() {
   return(
     <View style={defaultLayoutStyle.bottomTabBar}>
       <DefaultLayoutBottomTabIconBox
-        onPressed={onSearchPressed}>
+        onPressed={onCategoryPressed}>
         <Image source={require('../assets/logo.png')} style={defaultLayoutStyle.bottomTabIcon}></Image>
+        <Text style={defaultLayoutStyle.bottomTabLabel}>카테고리</Text>
       </DefaultLayoutBottomTabIconBox>
 
       <DefaultLayoutBottomTabIconBox
-        onPressed={onCategoryPressed}
+        onPressed={onSearchPressed}
       >
         <Image source={require('../assets/logo.png')} style={defaultLayoutStyle.bottomTabIcon}></Image>
+        <Text style={defaultLayoutStyle.bottomTabLabel}>검색</Text>
       </DefaultLayoutBottomTabIconBox>
 
       <DefaultLayoutBottomTabIconBox
         onPressed={onHomePressed}
       >
         <Image source={require('../assets/logo.png')} style={defaultLayoutStyle.bottomTabIcon}></Image>
+        <Text style={defaultLayoutStyle.bottomTabLabel}>홈</Text>
       </DefaultLayoutBottomTabIconBox>
 
       <DefaultLayoutBottomTabIconBox
         onPressed={onMyBagPressed}>
         <Image source={require('../assets/logo.png')} style={defaultLayoutStyle.bottomTabIcon}></Image>
+        <Text style={defaultLayoutStyle.bottomTabLabel}>장바구니</Text>
       </DefaultLayoutBottomTabIconBox>
 
       <DefaultLayoutBottomTabIconBox
         onPressed={onMyPagePressed}>
         <Image source={require('../assets/logo.png')} style={defaultLayoutStyle.bottomTabIcon}></Image>
+        <Text style={defaultLayoutStyle.bottomTabLabel}>마이페이지</Text>
       </DefaultLayoutBottomTabIconBox>
     </View>
   )

@@ -20,8 +20,7 @@ export default function RootNavigation() {
         headerShown: true,
         title: '고기팜',
         animation: 'none',
-      })}
-      >
+      })}>
         <RootNavigationStack.Screen 
           name='home' 
           component={Home}
@@ -29,7 +28,8 @@ export default function RootNavigation() {
             title: '홈',
             headerTitleAlign: 'center',
             headerTitle: HomeHeader,
-            headerStyle: homeStyle.headerTitle
+            headerStyle: homeStyle.headerTitle,
+            headerShadowVisible: true
           })}/>
         
         <RootNavigationStack.Screen 
